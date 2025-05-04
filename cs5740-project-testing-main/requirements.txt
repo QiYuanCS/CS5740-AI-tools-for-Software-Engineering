@@ -1,0 +1,10 @@
+fastapi
+mysql-connector-python
+pydantic
+python-dotenv
+starlette
+uvicorn
+pytest
+aiohttp
+pytest-asyncio
+

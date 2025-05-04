@@ -1,0 +1,6 @@
+mcp[cli]
+pylint
+mypy
+pytest
+pytest-asyncio
+uvicorn

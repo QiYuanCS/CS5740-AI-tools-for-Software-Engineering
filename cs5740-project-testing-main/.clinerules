@@ -1,0 +1,63 @@
+# Project-specific rules for Cline AI assistant
+version: 1.0
+
+# Project purpose and focus
+project:
+  purpose: "Practice generating comprehensive test cases for API interactions"
+  target_system: "aitools.cs.vt.edu:8000"
+  primary_focus: "testing"
+
+# General Python coding standards
+python:
+  style:
+    max_line_length: 88  # Black default
+    quote_style: double  # Prefer double quotes for strings
+    docstring_style: """  # Triple double quotes for docstrings
+  
+  imports:
+    grouped: true  # Group imports (stdlib, third-party, local)
+    alphabetized: true  # Alphabetize imports within groups
+
+# Testing standards and patterns
+testing:
+  framework: pytest
+  async_framework: pytest-asyncio
+  docstring_format: "Given-When-Then"  # Required format for test docstrings
+  test_file_naming: "test_*.py"  # Test files should be named test_*.py
+  test_location: "api/test/"  # All tests should be in api/test directory
+  
+  # Test case organization
+  test_case_patterns:
+    - functional_grouping: true  # Group related tests in the same file
+    - sensible_naming: true  # Use descriptive, action-oriented names
+    - complete_coverage: true  # Aim for thorough coverage of functionality
+  
+  # Test docstring requirements
+  docstring_sections:
+    - given: "Initial state/context"
+    - when: "Action being tested"
+    - then: "Expected outcome/assertion"
+
+# System architecture understanding
+architecture:
+  layers:
+    - client: "Direct API interaction with aitools.cs.vt.edu:8000"
+    - session: "User session management that uses client layer"
+    - test: "Test cases that exercise the session and client layers"
+  
+  api_endpoint: "aitools.cs.vt.edu:8000"
+  auth_required: true
+
+# Project-specific terminology
+terminology:
+  prompt: "A text template stored in the system"
+  guid: "Global Unique Identifier for entities"
+  session: "A user's interaction context with specific permissions"
+  tags: "Metadata labels associated with prompts"
+
+# Directories and their purposes
+directories:
+  api/client: "Client interfaces for direct API access to aitools.cs.vt.edu:8000"
+  api/session: "User session management layer that uses api/client"
+  api/test: "Test cases for API functionality following Given-When-Then format"
+  construction: "Notes and documentation about project construction"
